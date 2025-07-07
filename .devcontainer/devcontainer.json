@@ -1,7 +1,7 @@
 {
-  "name": "Python Playgroundfor VSCode",
+  "name": "Python Playground for VSCode",
   "dockerComposeFile": "docker-compose.yml",
-  "service": "app",
+  "service": "pytemplate",
   "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {

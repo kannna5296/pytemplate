@@ -1,6 +1,6 @@
 # プロジェクト基本情報
 [tool.poetry]
-name = "pyprac"
+name = "pytemplate"
 version = "0.1.0"
 description = "S3 data aggregation and Google Slides automation"
 authors = ["Your Name <your.email@example.com>"]
