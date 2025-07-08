@@ -2,13 +2,12 @@ import json
 
 
 def main():
-    print("ハロワ")
     # 設定ファイル読み込み
-    print("############################## FileNotFoundError ###################################")
-    file_open(file_path="src/applicationerror/config.jso")
+    print("############################## FileNotFoundErrorが起きる例 ###################################")
+    file_open(file_path="src/error/applicationerror/config.jso")
 
-    print("############################## JSONDecodeError ###################################")
-    file_open(file_path="src/applicationerror/ngconfig.json")
+    print("############################## JSONDecodeErrorが起きる例 ###################################")
+    file_open(file_path="src/error/applicationerror/ngconfig.json")
 
 def file_open(file_path: str):
     try:
