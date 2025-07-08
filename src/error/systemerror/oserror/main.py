@@ -5,7 +5,9 @@ import sys
 def main():
     try:
         # システムレベルの処理
-        pass
+        with open("a.txt") as f:
+            pass
+        # 実際にはOSErrorを実装したFileNotFoundErrorが出る
     except OSError as e:
         print(f"システムエラー: {e}")
         sys.exit(1)  # プログラム終了
