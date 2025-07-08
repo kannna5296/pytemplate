@@ -11,5 +11,6 @@ def main():
         print("メモリ不足です")
         sys.exit(1)  # プログラム終了
 
+
 if __name__ == "__main__":
     main()
