@@ -2,7 +2,7 @@ import pandas as pd
 
 def analysis_earthquake_data():
     """地震データを分析し、最も頻度の高い震源値を取得"""
-    df = pd.read_csv("src/scrape/earthquake_data.csv")
+    df = pd.read_csv("earthquake_data.csv")
 
     print(f"総データ数: {len(df)}")
     print(f"データ期間: {df['time'].min()} ～ {df['time'].max()}")
