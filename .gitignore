@@ -129,7 +129,7 @@ dmypy.json
 .pyre/
 
 # Poetry
-poetry.lock
+#poetry.lock
 
 # IDE
 .vscode/
@@ -139,4 +139,4 @@ poetry.lock
 
 # OS
 .DS_Store
-Thumbs.db 
+Thumbs.db
