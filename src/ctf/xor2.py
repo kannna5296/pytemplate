@@ -19,7 +19,8 @@ XOR暗号化の特徴:
 import base64
 
 plain = "abc"
-key = "hoghoghoghoghoghogh"
+key = "\x00xx"  # 最初の文字は暗号化しない（NULL文字）、残りは'x'
+# "0xx"だと、ACSII変換すると48になっちゃうのでまた違う話になる
 
 b_plain = plain.encode()
 print("b_plain: ", b_plain)
