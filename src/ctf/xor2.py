@@ -41,3 +41,13 @@ for i in range(len(b_plain)):
 print("result: ", result)
 print("".join(result))
 print(base64.b64encode("".join(result).encode()))
+
+print("====== 余談 =======")
+
+print('ASCII値0の文字の確認:')
+# ordはユニコードに変換するやつ
+print('ord(\"\\x00\"):', ord('\x00'))
+print('ord(\"\\0\"):', ord('\0'))
+print('chr(0):', repr(chr(0)))
+print('chr(0) == \"\\x00\":', chr(0) == '\x00')
+print('chr(0) == \"\\0\":', chr(0) == '\0')
