@@ -16,10 +16,23 @@ def main():
     group.add_argument('--tom', action='store_true', help='tomが含まれるフォルダだけ処理する')
     group.add_argument('--jerry', action='store_true', help='jerryが含まれるフォルダだけ処理する')
 
-    if parser.parse_args().tom:
-        path = [p for p in parser.parse_args().files if 'tom' in p]
-    elif parser.parse_args().jerry:
-        path = [p for p in parser.parse_args().files if 'jerry' in p]
+    args = parser.parse_args()
+
+    if args.tom:
+        path = [p for p in args.files if 'tom' in p]
+    elif args.jerry:
+        path = [p for p in args.files if 'jerry' in p]
+
+    # これと一緒
+    # path = []
+    # if args.tom:
+    #     for p in args.files:
+    #         if 'tom' in p:
+    #             path.append(p)
+    # elif args.jerry:
+    #     for p in args.files:
+    #         if 'jerry' in p:
+    #             path.append(p)
 
     print(path)
 
