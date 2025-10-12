@@ -8,6 +8,8 @@ class MyClass:
 
     # 型アノテーションがないと、ただのクラス変数になってprint(obj)で表示されない
     # dataclassは型アノテーションがある属性だけをフィールドとして扱います。
+      # name = "default" → クラス変数（print(obj)で表示されない）
+      # name: str = "default" → dataclassのフィールド（print(obj)で表示される）
 
     # fieldをつけるといろんなことができる. dataclassのフィールドを色々カスタマイズできる
     id: int = field(compare=False, default_factory=lambda : str(uuid.uuid4())) #compare=Falseとすると、==や!=で比較するときに無視される
