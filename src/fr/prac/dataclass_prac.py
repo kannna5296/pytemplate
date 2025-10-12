@@ -34,3 +34,22 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+# property使いたい時
+# /そのフィールドにset時バリデーションをつけたい時（property + setter)
+# /参照時に計算を含めた計算にしたい時（関数でもできるけど、()がいらなくなったりより簡潔に呼び出せる）
+# /読み取り参照にしたい時 propertyをつけて、setterをつけない
+# /広報互換性を保ちたい時
+# 昔: self.name = "太郎"
+# 今: バリデーション追加したいけど既存コードは変えたくない
+# @property
+# def name(self):
+#     return self._name
+
+# @name.setter
+# def name(self, value):
+#     if not value:
+#         raise ValueError("空はダメ")
+#     self._name = value
