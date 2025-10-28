@@ -1,5 +1,4 @@
 import sys
-from pathlib import Path
 
 # /workspace/src をパスに追加（/workspaceから実行される想定）
 src_path = "/workspace/src"
@@ -7,16 +6,15 @@ if str(src_path) not in sys.path:
     sys.path.insert(0, str(src_path))
 
 from datetime import datetime
-from unittest.mock import ANY, Mock
 from test.mock_playground.database import get_annimals
-
+from unittest.mock import ANY, Mock
 
 # get_aninmalsをMockする
 mock = Mock(spec=get_annimals)
 expected = {
-  "dog": datetime(2024,6,5,11,15),
-  "cat": datetime(2024,6,6,12,30),
-  "bird": datetime(2024,6,7,9,45)
+    "dog": datetime(2024, 6, 5, 11, 15),
+    "cat": datetime(2024, 6, 6, 12, 30),
+    "bird": datetime(2024, 6, 7, 9, 45),
 }
 mock.return_value = expected
 
