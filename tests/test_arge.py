@@ -12,8 +12,6 @@ from arg.arge import main
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 
-
-
 class TestArgeMain:
     """arge.pyのmain関数のテスト"""
 

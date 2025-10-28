@@ -1,5 +1,3 @@
-
-
 def analyze_most_frequent_region(df):
     """最も頻度の高い震源値を分析"""
     print("=== 最頻震源値分析 ===")
