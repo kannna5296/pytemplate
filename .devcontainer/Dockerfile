@@ -1,8 +1,8 @@
 FROM python:3.11.13-slim
 
-# システムパッケージの更新とgitインストール procps...プロセス監視
+# システムパッケージの更新とgit、makeインストール procps...プロセス監視
 RUN apt-get update && apt-get install -y \
-    git procps\
+    git procps make\
     && rm -rf /var/lib/apt/lists/*
     #↑キャッシュを削除してイメージサイズを削減
 

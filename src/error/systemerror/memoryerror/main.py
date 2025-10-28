@@ -1,10 +1,10 @@
-import json
 import sys
 
 
 def main():
     try:
         huge_data = [0] * (10**10)  # 大量メモリ使用
+        print(huge_data)
     except MemoryError as e:
         # プロセスがKilledしちゃうので以下のログは見れない。。
         print(e)
