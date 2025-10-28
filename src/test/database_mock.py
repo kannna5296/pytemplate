@@ -25,6 +25,8 @@ b = mock(database, "bird")
 c = mock(database, "fish")
 assert result == expected
 
+# 特定の引数で かつ 1回だけ呼ばれた！みたいなやつはない
+
 # assert_called_with: 直近の呼び出しをチェック
 mock.assert_called_with(ANY, "fish")  # assert不要！メソッド自体が例外を出す
 print("✅ 直近はfishで呼ばれている")
