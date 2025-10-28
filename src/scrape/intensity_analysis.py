@@ -1,4 +1,3 @@
-import pandas as pd
 
 
 def analyze_max_intensity(df):
@@ -15,7 +14,7 @@ def analyze_max_intensity(df):
         intensity_data = df[df["max_intensity"] == intensity].sort_values(
             "time", ascending=False
         )
-        print(f"    詳細:")
+        print("    詳細:")
         for _, row in intensity_data.iterrows():  # 全ての件数を表示
             print(f"      {row['time']} - {row['region']} - M{row['magnitude']}")
         print()

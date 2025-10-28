@@ -1,7 +1,9 @@
-import pytest
 import sys
-from unittest.mock import patch
 from pathlib import Path
+from unittest.mock import patch
+
+import pytest
+from arg.arge import main
 
 # 学び
 # capsys.readouterr()は、標準出力のテスト用のやつ
@@ -9,7 +11,7 @@ from pathlib import Path
 # srcディレクトリをパスに追加
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from arg.arge import main
+
 
 
 class TestArgeMain:

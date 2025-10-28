@@ -1,5 +1,5 @@
-from dataclasses import dataclass, field
 import uuid
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -21,7 +21,9 @@ class MyClass:
     password: int = field(
         default="secret", repr=False
     )  # repr=Falseとすると、print(obj)したときにhiddenが表示されなくなる
-    readonly: int = field(default=1, init=False)  # __init__ではなく、__post_init__で初期化される
+    readonly: int = field(
+        default=1, init=False
+    )  # __init__ではなく、__post_init__で初期化される
 
     def __post_init__(self):
         self.readonly = 2
