@@ -1,4 +1,14 @@
-## src/scrape
+Python練習リポジトリ！！
 
-* スクレイピング~分析を練習するリポジトリ
-* bs4によるスクレイピングと、pandasによる分析
+
+## フォーマット
+```
+make format
+```
+※devcontainer上で
+
+## リンター修正
+```
+make lint
+```
+※devcontainer上で
