@@ -2,6 +2,7 @@ import pandas as pd
 from region_analysis import analyze_most_frequent_region
 from intensity_analysis import analyze_max_intensity
 
+
 def analysis_earthquake_data():
     """地震データを分析"""
     df = pd.read_csv("earthquake_data.csv")
@@ -16,6 +17,7 @@ def analysis_earthquake_data():
 
     # 最大震度分析
     analyze_max_intensity(df)
+
 
 if __name__ == "__main__":
     analysis_earthquake_data()

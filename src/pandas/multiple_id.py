@@ -3,12 +3,15 @@ import numpy as np
 
 # 対象者の基礎データ
 # 年度ごとに対象者が決まる
-df = pd.DataFrame(data = [
-    [1, 1],
-    [2, np.nan],
-    [np.nan, 2],
-    [np.nan, np.nan],
-], columns=['id1', 'id2'])
+df = pd.DataFrame(
+    data=[
+        [1, 1],
+        [2, np.nan],
+        [np.nan, 2],
+        [np.nan, np.nan],
+    ],
+    columns=["id1", "id2"],
+)
 
 print(df)
 

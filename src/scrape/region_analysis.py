@@ -1,11 +1,12 @@
 import pandas as pd
 
+
 def analyze_most_frequent_region(df):
     """最も頻度の高い震源値を分析"""
     print("=== 最頻震源値分析 ===")
 
     # 震源（region）の頻度を計算
-    region_counts = df['region'].value_counts()
+    region_counts = df["region"].value_counts()
 
     print("\n震源頻度ランキング（上位10位）:")
     for i, (region, count) in enumerate(region_counts.head(10).items(), 1):

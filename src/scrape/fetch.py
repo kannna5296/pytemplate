@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import time
 
+
 def scrape_earthquake_data():
     """複数のURLから地震データを取得し、結合したDataFrameを返す"""
     URL_BASE = "https://typhoon.yahoo.co.jp/weather/jp/earthquake/list/?sort=1&key=1&b="
@@ -24,12 +25,14 @@ def scrape_earthquake_data():
             for r in rows:
                 cols = r.find_all("td")
                 if len(cols) >= 4:
-                    all_data.append({
-                        "time": cols[0].text.strip(),
-                        "region": cols[1].text.strip(),
-                        "magnitude": cols[2].text.strip(),
-                        "max_intensity": cols[3].text.strip()
-                    })
+                    all_data.append(
+                        {
+                            "time": cols[0].text.strip(),
+                            "region": cols[1].text.strip(),
+                            "magnitude": cols[2].text.strip(),
+                            "max_intensity": cols[3].text.strip(),
+                        }
+                    )
 
             # リクエスト間隔を空ける
             time.sleep(0.5)
@@ -44,6 +47,7 @@ def scrape_earthquake_data():
     # 全データを結合したDataFrameを作成
     df = pd.DataFrame(all_data)
     return df
+
 
 if __name__ == "__main__":
     df = scrape_earthquake_data()
