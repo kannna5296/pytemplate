@@ -34,6 +34,7 @@ def do_rounds(
     now_func=datetime.now,
     food_func=get_food_period,
     animals_func=get_animals,
+    feed_func=feed_animal,
 ):
     now = now_func()
     feeding_timedelta = food_func(database, species)
@@ -42,7 +43,7 @@ def do_rounds(
 
     for name, last_mealtime in animals.items():
         if (now - last_mealtime) > feeding_timedelta:
-            feed_animal(database, species)
+            feed_func(database, species)
             fed += 1
 
     return fed
