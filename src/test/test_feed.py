@@ -7,7 +7,7 @@ src_path = "/workspace/src"
 if str(src_path) not in sys.path:
     sys.path.insert(0, str(src_path))
 
-from test.feed import do_rounds, feed_animal, get_food_period, get_animals
+from test.feed import do_rounds, feed_animal, get_animals, get_food_period
 
 # Mock
 
@@ -33,6 +33,6 @@ result = do_rounds(
     species="dog",
     now_func=now_func,
     food_func=food_func,
-    animals_func=animals_func
+    animals_func=animals_func,
 )
 assert result == 1

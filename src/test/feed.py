@@ -31,10 +31,10 @@ def do_rounds(
     # キーワード引数のみ。
     # OK （do_rounds(database, species, now_func=datetime.now...)
     # NG （do_rounds(database, species, datetime.now...)）
-    now_func = datetime.now,
-    food_func = get_food_period,
-    animals_func = get_animals,
-    ):
+    now_func=datetime.now,
+    food_func=get_food_period,
+    animals_func=get_animals,
+):
     now = now_func()
     feeding_timedelta = food_func(database, species)
     animals = animals_func(database, species)

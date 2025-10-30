@@ -1,5 +1,3 @@
-
-
 class DatabaseConnection:
     def __init__(self, url: str, port: int):
         self.url = url
