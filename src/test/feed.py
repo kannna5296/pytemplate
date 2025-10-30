@@ -25,10 +25,20 @@ def feed_animal(database, species):
     pass
 
 
-def do_rounds(database, species):
-    now = datetime.now()
-    feeding_timedelta = get_food_period(database, species)
-    animals = get_animals(database, species)
+def do_rounds(
+    database,
+    species,
+    *,
+    # キーワード引数のみ。
+    # OK （do_rounds(database, species, now_func=datetime.now...)
+    # NG （do_rounds(database, species, datetime.now...)）
+    now_func = datetime.now,
+    food_func = get_food_period,
+    animals_func = get_animals,
+    ):
+    now = now_func()
+    feeding_timedelta = food_func(database, species)
+    animals = animals_func(database, species)
     fed = 0
 
     for name, last_mealtime in animals:
