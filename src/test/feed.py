@@ -9,8 +9,12 @@ class DatabaseConnection:
 
 
 # テスト対象を想定
-def get_annimals(database: DatabaseConnection, species: str):
-    pass
+def get_animals(database: DatabaseConnection, species: str) -> dict[str, datetime]:
+    return {
+        "dog": datetime(2024, 6, 5, 11, 15),
+        "cat": datetime(2024, 6, 6, 12, 30),
+        "bird": datetime(2024, 6, 7, 9, 45),
+    }
 
 
 def get_food_period(database, species) -> timedelta:
