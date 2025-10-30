@@ -1,5 +1,4 @@
-import datetime
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 
 class DatabaseConnection:
@@ -41,9 +40,9 @@ def do_rounds(
     animals = animals_func(database, species)
     fed = 0
 
-    for name, last_mealtime in animals:
+    for name, last_mealtime in animals.items():
         if (now - last_mealtime) > feeding_timedelta:
-            feed_animal(database, species, name)
+            feed_animal(database, species)
             fed += 1
 
     return fed
