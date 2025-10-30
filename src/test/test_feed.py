@@ -19,9 +19,9 @@ food_func.return_value = timedelta(days=1)
 
 animals_func = Mock(get_animals)
 animals_func.return_value = {
-    "dog": datetime(2024, 6, 5, 11, 15),
-    "cat": datetime(2024, 6, 6, 12, 30),
-    "bird": datetime(2024, 6, 7, 9, 45),
+    "dog": datetime(2024, 6, 3, 11, 15),
+    "cat": datetime(2024, 6, 4, 12, 30),
+    "bird": datetime(2024, 6, 5, 12, 45),
 }
 
 feed_func = Mock(feed_animal)
@@ -36,13 +36,14 @@ result = do_rounds(
     animals_func=animals_func,
     feed_func=feed_func,
 )
-assert result == 1
+assert result == 2
 
 food_func.assert_called_once_with(database, "dog")
 animals_func.assert_called_once_with(database, "dog")
 feed_func.assert_has_calls(
     [
-        call(database, "dog")
+        call(database, "dog", now_func.return_value),
+        call(database, "cat", now_func.return_value),
     ],
     any_order=True,
 )

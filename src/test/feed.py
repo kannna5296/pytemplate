@@ -16,11 +16,11 @@ def get_animals(database: DatabaseConnection, species: str) -> dict[str, datetim
     }
 
 
-def get_food_period(database, species) -> timedelta:
+def get_food_period(database: DatabaseConnection, species: str) -> timedelta:
     return timedelta(days=1)
 
 
-def feed_animal(database, species):
+def feed_animal(database: DatabaseConnection, species: str, now: datetime):
     pass
 
 
@@ -42,8 +42,9 @@ def do_rounds(
     fed = 0
 
     for name, last_mealtime in animals.items():
+        print(f"name: {name}, now-last_mealtime: {now - last_mealtime}, feeding_timedelta: {feeding_timedelta}")
         if (now - last_mealtime) > feeding_timedelta:
-            feed_func(database, species)
+            feed_func(database, name, now)
             fed += 1
 
     return fed
