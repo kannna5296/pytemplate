@@ -10,3 +10,4 @@ services:
     command: sleep infinity
     environment:
       - POETRY_VIRTUALENVS_IN_PROJECT=true
+      - PYTHONPATH=/workspace/src

@@ -1,10 +1,3 @@
-import sys
-
-# /workspace/src をパスに追加（/workspaceから実行される想定）
-src_path = "/workspace/src"
-if str(src_path) not in sys.path:
-    sys.path.insert(0, str(src_path))
-
 from datetime import datetime
 from test.mock_playground.database import get_annimals
 from unittest.mock import ANY, Mock

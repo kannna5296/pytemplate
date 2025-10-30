@@ -42,7 +42,6 @@ def do_rounds(
     fed = 0
 
     for name, last_mealtime in animals.items():
-        print(f"name: {name}, now-last_mealtime: {now - last_mealtime}, feeding_timedelta: {feeding_timedelta}")
         if (now - last_mealtime) > feeding_timedelta:
             feed_func(database, name, now)
             fed += 1

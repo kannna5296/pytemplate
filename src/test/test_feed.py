@@ -1,13 +1,6 @@
-import sys
 from datetime import datetime, timedelta
-from unittest.mock import Mock, call
-
-# /workspace/src をパスに追加（/workspaceから実行される想定）
-src_path = "/workspace/src"
-if str(src_path) not in sys.path:
-    sys.path.insert(0, str(src_path))
-
 from test.feed import do_rounds, feed_animal, get_animals, get_food_period
+from unittest.mock import Mock, call
 
 # Mock
 database = object()
