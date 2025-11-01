@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
-from test.feed import do_rounds, feed_animal, get_animals, get_food_period
 from unittest.mock import Mock, call
+
+from test.simple_test.feed import do_rounds, feed_animal, get_animals, get_food_period
 
 # Mock
 database = object()
