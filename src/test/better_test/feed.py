@@ -1,49 +1,42 @@
 from datetime import datetime, timedelta
 
-
-class DatabaseConnection:
-    def __init__(self, url: str, port: int):
-        self.url = url
-        self.port = port
+from test.simple_test.feed import DatabaseConnection
 
 
-# テスト対象を想定
-def get_animals(database: DatabaseConnection, species: str) -> dict[str, datetime]:
-    return {
+# database情報をラップするオブジェクトを作って、カプセル化する
+# ヘルパー関数を持たせる
+
+class ZooDatabase:
+    def __init__(self, database: DatabaseConnection):
+        self.database = database
+
+    def get_animals(self, species: str) -> dict[str, datetime]:
+        return {
         "dog": datetime(2024, 6, 5, 11, 15),
         "cat": datetime(2024, 6, 6, 12, 30),
         "bird": datetime(2024, 6, 7, 9, 45),
-    }
+        }
 
+    def get_food_period(self, species: str) -> timedelta:
+        return timedelta(days=1)
 
-def get_food_period(database: DatabaseConnection, species: str) -> timedelta:
-    return timedelta(days=1)
-
-
-def feed_animal(database: DatabaseConnection, species: str, now: datetime):
-    pass
-
+    def feed_animal(self, species: str, when: datetime):
+        pass
 
 def do_rounds(
-    database,
-    species,
+    zoo_db: ZooDatabase,
+    species: str,
     *,
-    # キーワード引数のみ。
-    # OK （do_rounds(database, species, now_func=datetime.now...)
-    # NG （do_rounds(database, species, datetime.now...)）
     now_func=datetime.now,
-    food_func=get_food_period,
-    animals_func=get_animals,
-    feed_func=feed_animal,
 ):
     now = now_func()
-    feeding_timedelta = food_func(database, species)
-    animals = animals_func(database, species)
+    feeding_timedelta = zoo_db.get_food_period(species)
+    animals = zoo_db.get_animals(species)
     fed = 0
 
     for name, last_mealtime in animals.items():
         if (now - last_mealtime) > feeding_timedelta:
-            feed_func(database, name, now)
+            zoo_db.feed_animal(name, now)
             fed += 1
 
     return fed
