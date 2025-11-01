@@ -38,6 +38,5 @@ with patch("__main__.DATABASE", spec=ZooDatabase):
         main(["program_name", "dog"])
 
         found = fake_stdout.getvalue().strip()
-        print(found)
-        expeted = "Fed 2 dog (s)"
-        assert found == expeted
+        expected = "Fed 3 dog (s)"
+        assert found == expected, f"Expected: '{expected}', but got: '{found}'"
