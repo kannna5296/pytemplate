@@ -10,3 +10,5 @@ services:
     command: sleep infinity
     environment:
       - POETRY_VIRTUALENVS_IN_PROJECT=true
+      # これによりルートディレクトリでpoetry run python src/test/test_feed.pyが実行できるようになる
+      - PYTHONPATH=/workspace/src
