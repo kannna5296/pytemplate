@@ -1,10 +1,9 @@
 import contextlib
 import io
 from datetime import datetime, timedelta
-from unittest.mock import patch
-
 from test.better_test.feed import ZooDatabase
 from test.better_test.main import main
+from unittest.mock import patch
 
 
 def test_main_feeds_animals():
