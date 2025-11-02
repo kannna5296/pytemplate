@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
     #↑キャッシュを削除してイメージサイズを削減
 
-# uvインストール
-RUN pip install --no-cache-dir uv
+# uvインストール（バージョン固定）
+RUN pip install --no-cache-dir uv==0.9.7
 
 WORKDIR /workspace
