@@ -4,15 +4,16 @@ from test.simple_test.feed import DatabaseConnection
 # database情報をラップするオブジェクトを作って、カプセル化する
 # ヘルパー関数を持たせる
 
+
 class ZooDatabase:
     def __init__(self, database: DatabaseConnection):
         self.database = database
 
     def get_animals(self, species: str) -> dict[str, datetime]:
         return {
-        "dog": datetime(2024, 6, 5, 11, 15),
-        "cat": datetime(2024, 6, 6, 12, 30),
-        "bird": datetime(2024, 6, 7, 9, 45),
+            "dog": datetime(2024, 6, 5, 11, 15),
+            "cat": datetime(2024, 6, 6, 12, 30),
+            "bird": datetime(2024, 6, 7, 9, 45),
         }
 
     def get_food_period(self, species: str) -> timedelta:
@@ -20,6 +21,7 @@ class ZooDatabase:
 
     def feed_animal(self, species: str, when: datetime):
         pass
+
 
 def do_rounds(
     zoo_db: ZooDatabase,

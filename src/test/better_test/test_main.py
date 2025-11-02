@@ -8,7 +8,6 @@ from unittest.mock import patch
 
 def test_main_feeds_animals():
     with patch("test.better_test.main.DATABASE", spec=ZooDatabase) as mock_database:
-
         mock_database.get_food_period.return_value = timedelta(days=1)
         mock_database.get_animals.return_value = {
             "dog": datetime(2024, 6, 3, 11, 15),
