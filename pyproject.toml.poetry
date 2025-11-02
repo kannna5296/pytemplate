@@ -1,37 +1,36 @@
 # プロジェクト基本情報
-[project]
+[tool.poetry]
 name = "pytemplate"
 version = "0.1.0"
 description = "S3 data aggregation and Google Slides automation"
-authors = [
-    {name = "Your Name", email = "your.email@example.com"}
-]
+authors = ["Your Name <your.email@example.com>"]
 readme = "README.md"
-requires-python = ">=3.11" #poetryだとtool.poetry.dependenciesに書いていたが、uvだとprojectに書く
+packages = [{include = "src"}]
+
+[tool.poetry.scripts]
+main = "src.project.main:main"
 
 # 依存関係(商用)
-dependencies = [
-    "boto3>=1.34.0",
-    "pandas>=2.1.0",
-    "google-api-python-client>=2.108.0",
-    "google-auth>=2.23.0",
-    "google-auth-oauthlib>=1.1.0",
-    "google-auth-httplib2>=0.1.1",
-    "python-dotenv>=1.0.0",
-    "beautifulsoup4>=4.12.3",
-]
+[tool.poetry.dependencies]
+python = "^3.11"
+boto3 = "^1.34.0"
+pandas = "^2.1.0"
+google-api-python-client = "^2.108.0"
+google-auth = "^2.23.0"
+google-auth-oauthlib = "^1.1.0"
+google-auth-httplib2 = "^0.1.1"
+python-dotenv = "^1.0.0"
+beautifulsoup4 = "^4.12.3"
 
 # 依存関係(開発のみ)
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.4.0",
-    "ruff>=0.1.0",
-    "mypy>=1.10.0",
-    "boto3-stubs[essential]>=1.34.0",
-]
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+ruff = "^0.1.0"
+mypy = "^1.10.0"
 
-[project.scripts]
-main = "src.project.main:main"
+# S3関連のメソッド定義にコード上から飛べない問題の解消 → https://dev.classmethod.jp/articles/try-boto3-stubs/
+boto3-stubs = {extras = ["essential"], version = "^1.34.0"}
+
 
 # ruff設定（black、flake8、isortの統合）
 [tool.ruff]

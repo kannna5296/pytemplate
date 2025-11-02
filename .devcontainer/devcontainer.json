@@ -23,5 +23,5 @@
             ]
         }
     },
-    "postCreateCommand": "git config --global --add safe.directory /workspace && poetry install && poetry run python -c 'print(\"✅ Poetry environment ready!\")'"
+    "postCreateCommand": "git config --global --add safe.directory /workspace && uv sync --all-extras && uv run python -c 'print(\"✅ UV environment ready!\")'"
 }
