@@ -18,3 +18,5 @@ numbers.sort(key = sorter) #これの実行時に__call__が呼ばれるっぽ�
 print("sort呼び出した後")
 print(sorter.found)
 print(numbers)
+
+# https://analytics-note.xyz/programming/list-sort-key/#google_vignette
