@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+
 from test.simple_test.feed import DatabaseConnection
 
 # database情報をラップするオブジェクトを作って、カプセル化する

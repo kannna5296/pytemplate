@@ -1,6 +1,7 @@
 from datetime import datetime
-from test.mock_playground.database import get_annimals
 from unittest.mock import ANY, Mock
+
+from test.mock_playground.database import get_annimals
 
 # get_aninmalsをMockする
 mock = Mock(spec=get_annimals)

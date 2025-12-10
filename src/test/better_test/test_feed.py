@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta
-from test.better_test.feed import ZooDatabase, do_rounds
 from unittest.mock import Mock, call
+
+from test.better_test.feed import ZooDatabase, do_rounds
 
 now_func = Mock(datetime.now)
 now_func.return_value = datetime(2024, 6, 6, 12, 0)  # 1日以上経過後に変更

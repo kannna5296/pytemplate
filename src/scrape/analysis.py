@@ -1,6 +1,7 @@
-import pandas as pd
 from intensity_analysis import analyze_max_intensity
 from region_analysis import analyze_most_frequent_region
+
+import pandas as pd
 
 
 def analysis_earthquake_data():

@@ -4,10 +4,10 @@ import bisect
 
 n, m = map(int, input().split())
 list = list(map(int, input().split()))
-g = [[] for _ in range(11)] #空配列が11個ある配列(0桁から10桁それぞれ)
+g = [[] for _ in range(11)]  # 空配列が11個ある配列(0桁から10桁それぞれ)
 print(g)
 for v in list:
-    #print(str(v), len(str(v)), v % m)
+    # print(str(v), len(str(v)), v % m)
     g[len(str(v))].append(v % m)
 print(g)
 for gg in g:

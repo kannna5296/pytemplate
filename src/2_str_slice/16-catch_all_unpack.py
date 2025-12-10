@@ -1,13 +1,11 @@
-
-
-car_ages = [0,9,4,8,76,20,19,1,6,15]
+car_ages = [0, 9, 4, 8, 76, 20, 19, 1, 6, 15]
 de = sorted(car_ages)
 print(de)
 
-#NG
+# NG
 # oldest, second_oldest = de
 
-#not better
+# not better
 # oldest = de[0]
 # second_oldes = de[1]
 # other = de[2:]
@@ -27,5 +25,4 @@ print(others)
 print(youngest)
 
 # あんパックは一度に1回まで
-#oldest, *middle, *middle2, yougest = de
-
+# oldest, *middle, *middle2, yougest = de

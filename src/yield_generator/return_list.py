@@ -1,5 +1,6 @@
 # Effective Python 項目43
 
+
 def index_words(text):
     result = []
     if text:
@@ -8,6 +9,7 @@ def index_words(text):
         if letter == " ":
             result.append(index + 1)
     return result
+
 
 address = "Four score and seven years ago..."
 result = index_words(address)

@@ -16,6 +16,6 @@ def analyze_most_frequent_region(df):
     print("\n最も頻度の高い震源:")
     print(f"震源: {most_frequent_region}")
     print(f"発生回数: {most_frequent_count}回")
-    print(f"全体に占める割合: {most_frequent_count/len(df)*100:.2f}%")
+    print(f"全体に占める割合: {most_frequent_count / len(df) * 100:.2f}%")
 
     return most_frequent_region, most_frequent_count
