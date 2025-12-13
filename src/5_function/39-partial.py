@@ -33,7 +33,7 @@ def log_sum_alt(value, log_total):
 
 # lambda式で無理やりint, リストの純で受け取る関数を作る
 result = functools.reduce(
-    lambda total, value: log_sum_alt(total, value) # ここで入れ替える。
+    lambda total, value: log_sum_alt(value, total), # ここで入れ替える。
     [10,20,40], # 後から引数を渡す
     0
 )
@@ -47,20 +47,32 @@ result = functools.reduce(
 #######または、メンテしてて第一引数が増えた場合
 
 def logn_sum(base, logn_total, value):
-    logn_value = math.log(base, value)
+    logn_value = math.log(value, base)
     return logn_total + logn_value
 
 
 result = functools.reduce(
-    lambda total, value: logn_sum(10, total, value) # ここで入れ替える。
+    lambda total, value: logn_sum(10, total, value), # ここで入れ替える。
     [10,20,40], # 後から引数を渡す
     0
 )
 
 # こういう「一部引数だけ固定して後から引数追加して良い書き方」をlambda式使わずともかける書き方
-
 result = functools.reduce(
-    functools.partial(log_sum, 10),
+    functools.partial(logn_sum, 10),
     [10, 20, 40],
     0
 )
+
+##### キーワード引数の例
+def logn_sum_last(logn_total, value, *, base=10):
+    logn_value = math.log(value, base)
+    return logn_total + logn_value
+
+## キーワード引数を一つ固定した関数が作れる
+log_sum_e = functools.partial(logn_sum_last, base=math.e)
+print(log_sum_e(3, math.e**10)) #13
+
+## 同じことをlambdaでもできるけど、読みづらいらしい
+log_sum_e_2 = lambda *a, base=math.e, **kw: logn_sum_last(*a, base=base, **kw)
+print(log_sum_e_2(3, math.e**10)) #13
