@@ -3,28 +3,30 @@ import math
 
 
 def log_sum(log_total, value):
-    '''
+    """
     第一引数にeを底とした第二引数の対数を足し合わせて返却する
 
     :param log_total: 説明
     :param value: 説明
-    '''
+    """
     log_value = math.log(value)
     return log_total + log_value
 
-print(log_sum(10,math.e**2))
 
-result = functools.reduce(log_sum, [10,20,40], 0) # 関数,配列,初期値
+print(log_sum(10, math.e**2))
+
+result = functools.reduce(log_sum, [10, 20, 40], 0)  # 関数,配列,初期値
 # loge10 + loge20 + loge40 = loge(10*20*40)
 
 print(math.exp(result))
-#eのloge(10*20*40)は10*20*40になるはずなので、8000
+# eのloge(10*20*40)は10*20*40になるはずなので、8000
 
 
 ####### 例えばこういう関数があった時
 def log_sum_alt(value, log_total):
     log_value = math.log(value)
     return log_total + log_value
+
 
 # 問題は
 # ・reduceで使いたいが、reduceは[関数, リスト, int]の順で指定することを期待する
@@ -33,9 +35,9 @@ def log_sum_alt(value, log_total):
 
 # lambda式で無理やりint, リストの純で受け取る関数を作る
 result = functools.reduce(
-    lambda total, value: log_sum_alt(value, total), # ここで入れ替える。
-    [10,20,40], # 後から引数を渡す
-    0
+    lambda total, value: log_sum_alt(value, total),  # ここで入れ替える。
+    [10, 20, 40],  # 後から引数を渡す
+    0,
 )
 # ↑こういう「引数として、関数Aとその関数Aの引数が並ぶ」みたいなことはあるあるらしい
 # 一部の引数を固定して、残りの引数を通常通り渡せるようにする、は関数型プログラミングでは一般的らしい（部分適用、カリー化？
@@ -46,33 +48,32 @@ result = functools.reduce(
 
 #######または、メンテしてて第一引数が増えた場合
 
+
 def logn_sum(base, logn_total, value):
     logn_value = math.log(value, base)
     return logn_total + logn_value
 
 
 result = functools.reduce(
-    lambda total, value: logn_sum(10, total, value), # ここで入れ替える。
-    [10,20,40], # 後から引数を渡す
-    0
+    lambda total, value: logn_sum(10, total, value),  # ここで入れ替える。
+    [10, 20, 40],  # 後から引数を渡す
+    0,
 )
 
 # こういう「一部引数だけ固定して後から引数追加して良い書き方」をlambda式使わずともかける書き方
-result = functools.reduce(
-    functools.partial(logn_sum, 10),
-    [10, 20, 40],
-    0
-)
+result = functools.reduce(functools.partial(logn_sum, 10), [10, 20, 40], 0)
+
 
 ##### キーワード引数の例
 def logn_sum_last(logn_total, value, *, base=10):
     logn_value = math.log(value, base)
     return logn_total + logn_value
 
+
 ## キーワード引数を一つ固定した関数が作れる
 log_sum_e = functools.partial(logn_sum_last, base=math.e)
-print(log_sum_e(3, math.e**10)) #13
+print(log_sum_e(3, math.e**10))  # 13
 
 ## 同じことをlambdaでもできるけど、読みづらいらしい
-log_sum_e_2 = lambda *a, base=math.e, **kw: logn_sum_last(*a, base=base, **kw)
-print(log_sum_e_2(3, math.e**10)) #13
+log_sum_e_2 = lambda *a, base=math.e, **kw: logn_sum_last(*a, base=base, **kw)  # noqa E731
+print(log_sum_e_2(3, math.e**10))  # 13
