@@ -1,6 +1,9 @@
 import functools
 import math
 
+###
+### 組み込みモジュールfunctools.partialは、固定された位置引数とキーワード引数を持つ関数を作成するための汎用的なツールである
+
 
 def log_sum(log_total, value):
     """
@@ -77,3 +80,4 @@ print(log_sum_e(3, math.e**10))  # 13
 ## 同じことをlambdaでもできるけど、読みづらいらしい
 log_sum_e_2 = lambda *a, base=math.e, **kw: logn_sum_last(*a, base=base, **kw)  # noqa E731
 print(log_sum_e_2(3, math.e**10))  # 13
+
