@@ -32,3 +32,7 @@ print(result)
 
 # Pythonには、関数の中で値を一度に全て返すのではなく、1つずつ「遅延して」返すためのキーワードとしてyieldがあります。
 # https://qiita.com/shun_sakamoto/items/5f13fa96701ba3727dc0
+
+
+# 内包表記とジェネレータ式を双方使うこともできる！これもメモリ効率よし。
+#it = (len(x) for x in open("my_file.text"))
