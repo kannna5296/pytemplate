@@ -8,6 +8,7 @@ def index_words(text):
             result.append(index + 1)
     return result
 
+
 # 「リストをそのまま出すのでメモリ不足の恐れあ理、可読性が低いので...⇩のようにジェネレータを返し、呼び出されたごとに処理を進めるようにする
 
 
@@ -18,6 +19,7 @@ def index_words_iter(text):
     for index, letter in enumerate(text):
         if letter == " ":
             yield index + 1
+
 
 address = "Four score and seven years ago... a i u e o"
 
@@ -35,4 +37,4 @@ print(result)
 
 
 # 内包表記とジェネレータ式を双方使うこともできる！これもメモリ効率よし。
-#it = (len(x) for x in open("my_file.text"))
+# it = (len(x) for x in open("my_file.text"))
