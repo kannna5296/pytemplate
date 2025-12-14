@@ -1,7 +1,9 @@
+# ジェネレータ
 def move(period, speed):
     for _ in range(period):
         yield speed
 
+# ジェネレータ
 def pause(delay):
     for _ in range(delay):
         yield 0
@@ -24,7 +26,7 @@ def run(func):
 print("yieldそのもので書くパターン。")
 run(animate)
 
-
+# ネストされた複数のジェネレータを単一の結合されたジェネレータとして構成できるし読みやすい
 def animate_composed():
     yield from move(4,5)
     yield from pause(3)
