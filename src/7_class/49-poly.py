@@ -1,18 +1,21 @@
+# ポリモーフィズム（Polymorphism）は「多態性」「多相性」とも訳され、
+# 一つのインターフェース（共通の操作名）を通じて、異なる型のオブジェクトがそれぞれ独自の動作（実装）をすることを指します。
+
 class Node:
-    def evaluate(self):
+    def evaluate(self): # 共通の操作名
         raise NotImplementedError
 
-    def pretty(self):
+    def pretty(self): # 共通の操作名
         raise NotImplementedError
 
 class IntergerNode(Node):
     def __init__(self, value):
         self.value = value
 
-    def evaluate(self):
+    def evaluate(self): # 中身は別
         return self.value
 
-    def pretty(self):
+    def pretty(self):# 中身は別
         return repr(self.value)
 
 class AddNode(Node):
