@@ -10,7 +10,7 @@ class IntergerNode(Node):
         return self.value
 
 class AddNode(Node):
-    def __init__(self, right, left):
+    def __init__(self, right: Node, left: Node):
         self.left = left
         self.right = right
 
@@ -18,7 +18,7 @@ class AddNode(Node):
         return self.left.evaluate() + self.right.evaluate()
 
 class MultiplyNode(Node):
-    def __init__(self, right, left):
+    def __init__(self, right: Node, left: Node):
         self.left = left
         self.right = right
 
