@@ -37,6 +37,7 @@ class PathInputData(GenericInputData):
         for name in os.listdir(data_dir):
             yield cls(os.path.join(data_dir, name))
 
+
 class PathInputZipData(GenericInputData):
     """pathをもらって、そのpathにあるファイルをreadで読み込む"""
 
@@ -49,6 +50,7 @@ class PathInputZipData(GenericInputData):
 
     def generate_inputs(data_dir: str) -> Generator:
         pass
+
 
 class GenericWorker:
     def __init__(self, input_data: GenericInputData):
@@ -122,10 +124,11 @@ def execute(workers: list[GenericWorker]):
         first.reduce(worker)
     return first.result
 
+
 ###
 ### ここを変えなくて良くなった。嬉しい！！！！！
 ###
-def mapreduce(worker_class: GenericWorker, input_class: GenericInputData,  config):
+def mapreduce(worker_class: GenericWorker, input_class: GenericInputData, config):
     """inputの読み込み、ワーカーの作成、スレッドでの実行を順に行う"""
     workers = worker_class.create_workers(input_class, config)
     return execute(workers=workers)
@@ -145,5 +148,7 @@ def write_test_files(tmpdir):
 tmpdir = "src/7_class/test_inputs_classmethod"
 write_test_files(tmpdir)
 config = {"data_dir": tmpdir}
-result = mapreduce(LineCountWorker, PathInputData, config) #実装方法を変えたいときは、具象クラスを作ってここを変えるだけで良い
+result = mapreduce(
+    LineCountWorker, PathInputData, config
+)  # 実装方法を変えたいときは、具象クラスを作ってここを変えるだけで良い
 print(f"行数カウント: {result}")
