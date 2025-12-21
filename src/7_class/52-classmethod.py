@@ -122,7 +122,9 @@ def execute(workers: list[GenericWorker]):
         first.reduce(worker)
     return first.result
 
-
+###
+### ここを変えなくて良くなった。嬉しい！！！！！
+###
 def mapreduce(worker_class: GenericWorker, input_class: GenericInputData,  config):
     """inputの読み込み、ワーカーの作成、スレッドでの実行を順に行う"""
     workers = worker_class.create_workers(input_class, config)
