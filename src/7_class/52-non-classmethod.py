@@ -4,6 +4,7 @@
 # インスタンス化が不要になって、設計しやすい
 
 # 以下、classmethod使わないVer
+# Woker,InputDataの具象クラスについて汎用的でない。（抽象化できておらず、具体を変えたときに修正しないといけない範囲が多い？？？）
 
 import os
 import random
@@ -80,6 +81,9 @@ def generate_inputs(data_dir: str) -> Generator:
     """ディレクトリパスをもらって、その中のファイルを読み込んだデータを返すGeneratorを返す"""
     for name in os.listdir(data_dir):
         yield PathInputData(os.path.join(data_dir, name))
+        # ⭐️ここ具体的に書かざるを得ないの、🤢🤢🤢🤢🤢🤢🤢🤢!いや! できればInputData.何かしら読み込める形で描きたい
+        # zip解凍する処理とかを書くときにここを変えないといけないのが嫌だ
+        # 汎用クラスを指定して、具体クラスによって何が入るかは自動的に決まって欲しい
 
 
 def create_workers(input_list: list[InputData]) -> list[Worker]:
@@ -87,6 +91,9 @@ def create_workers(input_list: list[InputData]) -> list[Worker]:
     workers = []
     for input_data in input_list:
         workers.append(LineCountWorker(input_data))
+        # ⭐️ここ具体的に書かざるを得ないの、🤢🤢🤢🤢🤢🤢🤢🤢!いや!
+        # 行数カウントじゃなくて一部ファイルについては文字数カウントも出したい、とか書くときにここを変えないといけないのが嫌だ
+        # 汎用クラスを指定して、具体クラスによって何が入るかは自動的に決まって欲しい
     return workers
 
 
