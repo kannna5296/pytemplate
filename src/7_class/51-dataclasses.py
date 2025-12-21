@@ -1,4 +1,3 @@
-
 from dataclasses import asdict, astuple, dataclass, field
 
 
@@ -8,14 +7,17 @@ class RGB:
     green: int
     blue: int
     default1: float = 3.14
-    default2: list = field(default_factory=lambda: [1, 2, 3]) #default_factoryは関数的に書かないといけない
+    default2: list = field(
+        default_factory=lambda: [1, 2, 3]
+    )  # default_factoryは関数的に書かないといけない
 
-rgb = RGB(red = 1, green = 2, blue = 3)
-rgb_alt = RGB(red = 1, green = 2, blue = 3)
-rgb_alt2 = RGB(red = 1, green = 2, blue = 4)
-print(rgb) #__repr__の実装が省ける
-print(f"astuple, {astuple(rgb)}") #astupleが自動で生えてくる
-print(f"asdict, {asdict(rgb)}") #asdictが自動で生えてくる
+
+rgb = RGB(red=1, green=2, blue=3)
+rgb_alt = RGB(red=1, green=2, blue=3)
+rgb_alt2 = RGB(red=1, green=2, blue=4)
+print(rgb)  # __repr__の実装が省ける
+print(f"astuple, {astuple(rgb)}")  # astupleが自動で生えてくる
+print(f"asdict, {asdict(rgb)}")  # asdictが自動で生えてくる
 print(f"eq, {rgb == rgb_alt}")
 print(f"eq, {rgb == rgb_alt2}")
 
@@ -35,5 +37,3 @@ print(ver_x > ver_y)
 # majorを比較→一緒なので次へ
 # minorを比較→xがかってるのでxの勝ち
 # patchは見ない
-
-
