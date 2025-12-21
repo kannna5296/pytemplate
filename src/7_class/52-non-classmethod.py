@@ -130,7 +130,7 @@ def write_test_files(tmpdir):
             f.write("\n" * random.randint(0, 100))
 
 
-tmpdir = "src/7_class/test_inputs_non_classmethod"
+tmpdir = "src/7_class/test_inputs_classmethod"
 write_test_files(tmpdir)
 result = mapreduce(tmpdir)
 print(f"行数カウント: {result}")
