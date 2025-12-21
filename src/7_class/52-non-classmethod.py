@@ -5,6 +5,7 @@
 
 # 以下、classmethod使わないVer
 # Woker,InputDataの具象クラスについて汎用的でない。（抽象化できておらず、具体を変えたときに修正しないといけない範囲が多い？？？）
+# 他の言語だとコンストラクタ(or factory method)を複数作ってやるのだが、__init__しかない。pythonだとそこでclassmethodが出てくる
 
 import os
 import random
